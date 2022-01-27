@@ -13,7 +13,10 @@
                 </div>
              </div>
           </div>
-          <h4><span style ="display: inline-block" class="badge bg-success mb-2">{{movie.rating}}</span></h4>
+
+          <!-- [ngClass]="{'bg-success': {{movie.rating}}>8,  'bg-danger': {{movie.rating}}<8}" -->
+          <!-- *ngIf="  {{movie.rating}} == 8 " -->
+          <h4><span style ="display: inline-block" class="badge bg-success mb-2" [ngClass]="GetRatingColor(movie.rating)" >{{movie.rating}}</span></h4>
           <div style="color:white">{{movie.overview}}</div>
        </div>
        <div class="col-3 mt-5">
