@@ -1,1 +1,31 @@
-<p>cast-details works!</p>
+<div class="container-fluid">
+    <div>
+    <h1>
+    {{cast.name}} 
+ 
+    </h1>
+    </div>
+    <div>
+    <img src="{{cast.profilePath}}"/>
+    </div>
+  
+    
+    <div>
+     <a href="{{cast.tmdbUrl}}">The Movie Database Profile</a> 
+    
+    </div>
+    {{movieCards}}
+    <div class="container-fluid">
+    <div class ="row">
+
+         <div class="col-6 col-xl-2 cl-sm-4 col-lg-3" *ngFor="let movieCard of movieCards">
+            <app-movie-card [movieCard] = "movieCard">
+
+            </app-movie-card>
+     </div> 
+    
+    </div>
+    </div>
+    
+    
+    </div>

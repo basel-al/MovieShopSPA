@@ -8,7 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { MovieDetailsComponent } from './public/movie-details/movie-details.component';
 import { CastDetailsComponent } from './public/cast-details/cast-details.component';
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
+import { LoginComponent } from './account/login/login.component';
 import { HeaderComponent } from './core/layout/header/header.component';
+// import { GenreDropdownComponent } from './shared/components/genre-dropdown/genre-dropdown.component';
+// import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +22,14 @@ import { HeaderComponent } from './core/layout/header/header.component';
     CastDetailsComponent,
     MovieCardComponent,
     HeaderComponent,
+    // GenreDropdownComponent,
+    // LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

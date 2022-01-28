@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GenreService } from 'src/app/core/services/genre.service';
+import { Genre } from 'src/app/shared/models/Genre';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +9,17 @@ import { GenreService } from 'src/app/core/services/genre.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  genres! : Genre[];
+  constructor(private genreService: GenreService) { }
 
   ngOnInit(): void {
+    this.genreService.getAllGenres().subscribe(
+      m => {
+        this.genres = m;
+        console.log(this.genres);
+      }
+    )
+    
   }
 
 }

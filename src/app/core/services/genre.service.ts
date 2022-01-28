@@ -10,8 +10,8 @@ export class GenreService {
 
   constructor(private http: HttpClient) { }
 
-  getAllGenres(): Observable<Genre[]>{
-    return  this.http.get<Genre[]>(`${environment.apiBaseUrl}Genres`);
+  getAllGenres(): Observable<Genre[]>
+  {
+     return this.http.get<Genre[]>(`${environment.apiBaseUrl}Genres`);
   }
-
 }

@@ -24,9 +24,13 @@ export class MovieDetailsComponent implements OnInit {
         const id = Number(p.get('id'));
         this.movieService.getMovieDetails(id).subscribe(m=>{
           this.movie=m;
+          this.movie.rating = parseFloat(this.movie.rating.toFixed(2));
+          this.movie.price
           console.log(this.movie);
+          
         })
       }
+      
 
     )
   }
@@ -47,6 +51,15 @@ export class MovieDetailsComponent implements OnInit {
       return{'bg-secondary':true};
     
   }
+  GetMoneyString(dollars : number)
+  {
+    return dollars.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  }
+  GetDateString(date : string)
+  {
+    return date.substring(5,7)+"/"+date.substring(8,10)+"/"+date.substring(0,4)
+  }
+  
 
 
 

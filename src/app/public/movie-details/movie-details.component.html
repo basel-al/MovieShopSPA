@@ -7,15 +7,12 @@
           <h2 style="color:white">{{movie.title}}</h2>
           <div style="color:#6B757D">{{movie.tagline}}</div>
           <div class = "mt-2 mb-2" style="color:#6B757D ; font-weight:bold" >
-             {{movie.runTime}} | {{movie.releaseDate}}
+             {{movie.runTime}} m | {{GetDateString(movie.releaseDate)}}
              <div *ngFor="let genre of movie.genres">
                 <div style ="display: inline-block ; text-decoration: none" class="badge bg-secondary float-end">{{genre.name}}
                 </div>
              </div>
           </div>
-
-          <!-- [ngClass]="{'bg-success': {{movie.rating}}>8,  'bg-danger': {{movie.rating}}<8}" -->
-          <!-- *ngIf="  {{movie.rating}} == 8 " -->
           <h4><span style ="display: inline-block" class="badge bg-success mb-2" [ngClass]="GetRatingColor(movie.rating)" >{{movie.rating}}</span></h4>
           <div style="color:white">{{movie.overview}}</div>
        </div>
@@ -42,7 +39,7 @@
                       <input name= "UserId" type="hidden" value=@_currentUser.UserId />
                       <input name= "MovieId" type="hidden" value=@Model.Id />
                    </form>
-                   <button type="button" class="btn btn-light float-end" data-bs-toggle="modal" data-bs-target="#purchaseModal">BUY {{movie.price}}</button>
+                   <button type="button" class="btn btn-light float-end" data-bs-toggle="modal" data-bs-target="#purchaseModal">BUY {{GetMoneyString(movie.price)}}</button>
                 </div>
              </div>
           </div>
@@ -52,10 +49,10 @@
        <div class="col-3" style ="background-color: #F8F9FA;font-weight: bold; background-clip: content-box">
           <h4>MOVIE FACTS</h4>
           <ul class="list-group list-group-flush">
-             <li class="list-group-item bg-transparent">Release Date <span class="badge rounded-pill bg-secondary">{{movie.releaseDate}}</span></li>
+             <li class="list-group-item bg-transparent">Release Date <span class="badge rounded-pill bg-secondary">{{GetDateString(movie.releaseDate)}}</span></li>
              <li class="list-group-item bg-transparent">Run Time  <span class="badge rounded-pill bg-secondary">{{movie.runTime}} m</span></li>
-             <li class="list-group-item bg-transparent">Box Office  <span class="badge rounded-pill bg-secondary">{{movie.revenue}}</span></li>
-             <li class="list-group-item bg-transparent">Budget  <span class="badge rounded-pill bg-secondary">{{movie.budget}}</span></li>
+             <li class="list-group-item bg-transparent">Box Office  <span class="badge rounded-pill bg-secondary">{{GetMoneyString(movie.revenue)}}</span></li>
+             <li class="list-group-item bg-transparent">Budget  <span class="badge rounded-pill bg-secondary">{{GetMoneyString(movie.budget)}}</span></li>
              <li class="list-group-item bg-transparent"><a href= @Model.ImdbUrl class="text-decoration-none text-reset"> IMDb</a> </li>
           </ul>
           <h4>TRAILERS</h4>
@@ -71,11 +68,13 @@
              <h4>CAST</h4>
              <div class="list-group list-group-flush">
                 <div *ngFor="let castmember of movie.casts">
+                  <a [routerLink] ="['/cast/', castmember.id]">  
                    <div class ="list-group-item list-group-item-action d-flex flex-row">
                       <img src ="{{castmember.profilePath}}" style="max-width:5%" class="rounded-circle m-2">
                       <div class =" m-2 flex-grow-1">{{castmember.name}}</div>
                       <div class =" m-2">{{castmember.character}}</div>
                    </div>
+                   </a>
                 </div>
              </div>
              <div class="col">
