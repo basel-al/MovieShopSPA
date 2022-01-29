@@ -1,31 +1,28 @@
+
+
 <div class="container-fluid">
-    <div>
-    <h1>
-    {{cast.name}} 
- 
-    </h1>
+     <div>
+       <h1>
+        {{castDetails.name}} 
+       </h1>
     </div>
     <div>
-    <img src="{{cast.profilePath}}"/>
+       <img src="{{castDetails.profilePath}}"/>
     </div>
-  
-    
     <div>
-     <a href="{{cast.tmdbUrl}}">The Movie Database Profile</a> 
-    
+       <a href="{{castDetails.tmdbUrl}}">The Movie Database Profile</a> 
     </div>
-    {{movieCards}}
+
+ <!-- <app-home [castDetails.movieTitle] ="movieCards"> 
+    </app-home> -->
     <div class="container-fluid">
-    <div class ="row">
-
-         <div class="col-6 col-xl-2 cl-sm-4 col-lg-3" *ngFor="let movieCard of movieCards">
-            <app-movie-card [movieCard] = "movieCard">
-
-            </app-movie-card>
-     </div> 
-    
-    </div>
-    </div>
+       <div class ="row">
+          <div class="col-6 col-xl-2 cl-sm-4 col-lg-3" *ngFor="let movieCard of castDetails.movieTitle">
+             <app-movie-card [movieCard] = "movieCard">
+             </app-movie-card>
+          </div>
+       </div>
+    </div>  
+</div>
     
     
-    </div>

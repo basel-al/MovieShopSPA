@@ -10,8 +10,8 @@ import { CastDetailsComponent } from './public/cast-details/cast-details.compone
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
 import { LoginComponent } from './account/login/login.component';
 import { HeaderComponent } from './core/layout/header/header.component';
-// import { GenreDropdownComponent } from './shared/components/genre-dropdown/genre-dropdown.component';
-// import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GenreComponent } from './shared/components/genre/genre.component';
 
 
 @NgModule({
@@ -22,14 +22,14 @@ import { HeaderComponent } from './core/layout/header/header.component';
     CastDetailsComponent,
     MovieCardComponent,
     HeaderComponent,
-    // GenreDropdownComponent,
-    // LoginComponent,
+    LoginComponent,
+    GenreComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // MatSelectModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

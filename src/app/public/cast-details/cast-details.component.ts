@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CastService } from 'src/app/core/services/cast.service';
-import { Cast } from 'src/app/shared/models/Cast';
+import { CastDetails } from 'src/app/shared/models/CastDetails';
 import { MovieCard } from 'src/app/shared/models/MovieCard';
 
 @Component({
@@ -10,8 +10,7 @@ import { MovieCard } from 'src/app/shared/models/MovieCard';
   styleUrls: ['./cast-details.component.css']
 })
 export class CastDetailsComponent implements OnInit { 
-  cast!:Cast;
-  movieCards!: MovieCard[];
+  castDetails!:CastDetails;
   constructor(private activeRoute: ActivatedRoute, private castService: CastService) {
 
 
@@ -22,10 +21,21 @@ export class CastDetailsComponent implements OnInit {
       p=>{
         const id = Number(p.get('id'));
         this.castService.getCastDetails(id).subscribe(
-          m=>{this.cast =m;});
-        
+          m=>{this.castDetails =m;
+
+            console.log(this.castDetails);
+          console.log("why");
+          console.log(this.castDetails.id);
+          console.log(this.castDetails.movieTitle);
+          
+          });
+          // console.log(this.castDetails);
+          // console.log(this.castDetails.movies);
+          
+          
       })
     }
+    
              
         
 }

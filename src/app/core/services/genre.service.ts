@@ -14,4 +14,5 @@ export class GenreService {
   {
      return this.http.get<Genre[]>(`${environment.apiBaseUrl}Genres`);
   }
+
 }

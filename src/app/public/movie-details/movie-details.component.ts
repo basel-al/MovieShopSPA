@@ -25,7 +25,7 @@ export class MovieDetailsComponent implements OnInit {
         this.movieService.getMovieDetails(id).subscribe(m=>{
           this.movie=m;
           this.movie.rating = parseFloat(this.movie.rating.toFixed(2));
-          this.movie.price
+          // this.movie.price
           console.log(this.movie);
           
         })

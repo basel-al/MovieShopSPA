@@ -15,16 +15,12 @@
                 </li>
              </ul>
           </div> -->
-      
-          <!-- <mat-form-field>
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-               <mat-option style ="display: inline-block ; text-decoration: none" >Volvo</mat-option>
-               <mat-option style ="display: inline-block ; text-decoration: none">Saab</mat-option>
-               <mat-option style ="display: inline-block ; text-decoration: none">Mercedes</mat-option>
-               <mat-option style ="display: inline-block ; text-decoration: none">Audi</mat-option>
-            </mat-select>
-          </mat-form-field>        -->
+           <div ngbDropdown class="d-inline-block">
+             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Genres</button>
+             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+               <button ngbDropdownItem  *ngFor="let genre of genres" [routerLink] ="['Movies/genre/', genre.id]">{{genre.name}}</button>                
+             </div>
+           </div>
           <a [routerLink] ="['/login']">   
             Login
           </a>
